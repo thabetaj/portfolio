@@ -1,0 +1,230 @@
+﻿@using Portfolio.Data
+@model University
+
+@{
+    Layout = "~/Views/Shared/_ViewPortfolioLayout.cshtml";
+}
+
+
+<header>
+
+    <div class="container">
+        <div class="heading-wrapper">
+            <div class="row">
+                <div class="col-sm-6 col-md-6 col-lg-4">
+                    <div class="info">
+                        <i class="icon ion-ios-location-outline"></i>
+                        <div class="right-area">
+                            <h5 id="Address"></h5>
+                        </div><!-- right-area -->
+                    </div><!-- info -->
+                </div><!-- col-sm-4 -->
+                <div class="col-sm-6 col-md-6 col-lg-4">
+                    <div class="info">
+                        <i class="icon ion-ios-telephone-outline"></i>
+                        <div class="right-area">
+                            <h5 id="MobileNumber"></h5>
+                        </div><!-- right-area -->
+                    </div><!-- info -->
+                </div><!-- col-sm-4 -->
+                <div class="col-sm-6 col-md-6 col-lg-4">
+                    <div class="info">
+                        <i class="icon ion-ios-chatboxes-outline"></i>
+                        <div class="right-area">
+                            <h5 id="PortfolioEmail"></h5>
+                        </div><!-- right-area -->
+                    </div><!-- info -->
+                </div><!-- col-sm-4 -->
+            </div><!-- row -->
+        </div><!-- heading-wrapper -->
+        <div>
+            @*<a target="_blank" class="downlad-btn" id="CV" asp-controller="User"
+               asp-action="CV" asp-route-Id="@ViewBag.UserId">Download CV</a>*@
+            @*<a class="downlad-btn" id="CV" href="/View/EditPortfolio">Edit Portfolio</a>*@
+        </div>
+
+
+    </div><!-- container -->
+</header>
+<section class="intro-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1 col-lg-2"></div>
+            <div class="col-md-10 col-lg-8">
+                <div class="intro">
+                    <div class="profile-img"><img id="PersonalImage" src="" alt=""></div>
+                    <h2><b id="FirstName" style="color:black !important"></b></h2>
+                    <h4 id="JobTitle" style="color:black !important"></h4>
+                    <ul class="information margin-tb-30">
+                        <li>BORN : <b id="DateOfBirth" style="color:black !important"></b></li>
+                        <li>EMAIL : <b id="Email" style="color:black !important"></b></li>
+                    </ul>
+                    <ul class="social-icons">
+                        <li><a target="_blank" id="LinkedIn" href=""><i class="ion-social-linkedin"></i></a></li>
+                        <li><a target="_blank" id="Facebook" href=""><i class="ion-social-facebook"></i></a></li>
+                        <li><a target="_blank" id="Twitter" href=""><i class="ion-social-twitter"></i></a></li>
+                    </ul>
+                </div><!-- intro -->
+            </div><!-- col-sm-8 -->
+        </div><!-- row -->
+    </div><!-- container -->
+</section><!-- intro-section -->
+<section class="about-section section">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 center-text">
+                <div class="heading" style="text-align: center;">
+                    <h3><b>About me</b></h3>
+                    <h6 class="font-lite-black"><b id="JobTitle"></b></h6>
+                </div>
+            </div><!-- col-sm-3 -->
+            <div style="text-align:center;" class="col-sm-12 col-md-6">
+                <p class="margin-b-30" id="About"></p>
+            </div><!-- col-sm-6 -->
+            <div style="text-align:center;" class="col-sm-12 col-md-6">
+                <p class="margin-b-50" id="Vision"></p>
+            </div><!-- col-sm-6 -->
+        </div><!-- row -->
+    </div><!-- container -->
+</section><!-- about-section -->
+<section class="education-section section">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="heading">
+                    <h3><b>Education</b></h3>
+                    <h6 class="font-lite-black"><b>ACADEMIC CAREER</b></h6>
+                </div>
+            </div><!-- col-sm-4 -->
+            <div class="col-sm-8">
+                <div class="education-wrapper">
+                    <div class="education margin-b-50">
+                        <ul>
+                            @{
+                                foreach (var unii in (List<UserUniversity>)ViewBag.uni)
+                                {
+                                    <li value="@unii.UniversityiId">@unii.Degree.DegreeName of @unii.MajorName in @unii.University.UniversityName </li>
+                                    <br />
+                                }
+                            }
+                        </ul>
+
+                    </div><!-- education -->
+                </div><!-- education-wrapper -->
+            </div><!-- col-sm-8 -->
+           
+        </div><!-- row -->
+    </div><!-- container -->
+</section><!--End Education-section -->
+<section class="quoto-section center-text">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <i class="icon ion-quote"></i>
+                <h3 class="font-yellow"><b>There is no secret to success</b></h3>
+                <h3>
+                    <b>
+                        It is the result of preparation, <span>hard work</span>,
+                        and learning from the failure.
+                    </b>
+                </h3>
+            </div><!-- col-sm-12 -->
+        </div><!-- row -->
+    </div><!-- container -->
+</section><!-- quoto-section -->
+<section class="skills-section section">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 center-text">
+                <div class="heading" style="text-align: center;">
+                    <h3><b> Skills</b></h3>
+                    <h6 class="font-lite-black"><b>I'M GOOD AT</b></h6>
+                </div>
+            </div><!-- col-sm-12 -->
+            <div class="col-sm-12 col-md-6">
+                <h4><b>Interpersonal Skill : </b></h4>
+                <ul id="InterpersonalSkills">
+                </ul>
+            </div><!-- col-md-6 -->
+            <div class="col-sm-12 col-md-6">
+                <h4><b>Technical Skill</b></h4>
+                <ul id="TechnicalSkills">
+                </ul>
+            </div><!-- col-md-6 -->
+        </div><!-- row -->
+    </div><!-- container -->
+</section><!-- skills-section -->
+<section class="iconboxes-section section" id="counter">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="heading" style="text-align: center;">
+                    <h4><b>Project</b></h4>
+                    <h6 class="font-lite-black"><b>Some Of My Project</b></h6>
+                </div>
+            </div><!-- col-sm-12 -->
+            <div style="text-align:center" class="col-sm-6 col-md-6 col-lg-4">
+                <div style="text-align:center" class="row iconbox margin-b-30">
+                    <div class="row">
+                        @{
+                        foreach (var project in (List<Project>)ViewBag.Projects)
+                        {
+                            <div class="col-lg-4" style="margin-left: 400px; margin-bottom:50px;">
+                                <div class="card" style="width: 18rem; justify-content:center;">
+                                    <img value="@project.ProjectId" src="data:image/png;base64,
+                                         @Convert.ToBase64String(project.ProjectImage)"
+                                         class="profile-img">
+                                    <div class="card-body" data-aos="zoom-in" data-aos-delay="100">
+                                        <h5 id="@project.ProjectId" class="card-text">@project.ProjectName</h5>
+                                        <h6 id="@project.ProjectId">@project.ProjectDescription</h6>
+                                        <a style="background-color: #6610f2; margin-bottom: 5px" target="_blank" class="btn btn-primary" id="CV" asp-controller="User" asp-action="ProjectFile" asp-route-Id="@project.ProjectId">View Project PDF</a>
+                                    </div>
+                                </div>
+                            </div>
+        }
+                        }
+                    </div>
+                </div>
+            </div>
+           
+        </div><!-- row -->
+    </div><!-- container -->
+</section><!-- progression-section -->
+<!-- about-section -->
+
+
+<script>
+    $(document).ready(function () {
+        $.ajax({
+            type: 'GET',
+            url: 'https://thabet.azurewebsites.net/API/User/ViewPortfolioForAdmin?Id=@ViewBag.UserId',
+            contentType: 'application/json', // this
+            datatype: 'json',
+            cache: false,
+            success: function (data) {
+                debugger;
+                document.getElementById("PersonalImage").src = "data:image/png;base64," + data.personalImage;
+                document.getElementById("Address").innerHTML = data.address;
+                document.getElementById("MobileNumber").innerHTML = data.mobileNumber;
+                document.getElementById("PortfolioEmail").innerHTML = data.portfolioEmail;
+                document.getElementById("Email").innerHTML = data.portfolioEmail;
+                $("#CV").attr("href", '/API/User/GetCV/' + data.id);
+                document.getElementById("FirstName").innerHTML = data.firstName;
+                document.getElementById("JobTitle").innerHTML = data.jobTitle;
+                document.getElementById("DateOfBirth").innerHTML = data.dateOfBirth;
+                $("#LinkedIn").attr("href", data.linkedInUrl);
+                $("#Facebook").attr("href", data.fBUrl);
+                $("#Twitter").attr("href", data.twitterUrl);
+                document.getElementById("About").innerHTML = data.about;
+                document.getElementById("Vision").innerHTML = data.vision;                
+                $.each(data.interpersonalSkill, function (index, value) {
+                    console.log(value.projectName);
+                    $("#InterpersonalSkills").append('<li>' + value.name + '</li><br />');
+                });
+                $.each(data.technicalSkill, function (index, value) {
+                    $("#TechnicalSkills").append('<li>' + value.name + '</li><br />');
+                });
+            },
+        });
+    });
+</script>

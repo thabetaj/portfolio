@@ -1,0 +1,40 @@
+﻿@{
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+<section id="hero" class="d-flex align-items-center">
+
+    <div class="container-fluid" data-aos="fade-up">
+        <div class="row justify-content-center">
+            <div class="col-xl-5 col-lg-6 pt-3 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th style="color:white">First Name</th>
+                            <th style="color:white">Last Name</th>
+                            <th style="color:white">Portfolio Email</th>
+                            <th style="color:white">Phone Number</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @{
+                            foreach (var x in (List<UserDto>)ViewBag.User)
+                            {
+                                <tr>
+                                    <td style="color:white">@x.FirstName</td>
+                                    <td style="color:white">@x.LastName</td>
+                                    <td style="color:white">@x.PortfolioEmail</td>
+                                    <td style="color:white">@x.MobileNumber</td>
+                                    <td>
+                                        @Html.ActionLink("Show", "ViewPortfolio", "AdminUsers", new { UserId = x.UserId }, new { @class = "btn btn-dark" })
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</section>

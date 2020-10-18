@@ -1,0 +1,29 @@
+﻿@using Portfolio.Data
+@model University
+@{
+    Layout = "~/Views/Shared/_exLayout.cshtml";
+
+}
+<div style="background: -webkit-linear-gradient(-#6610f2, #6f42c1,#6f42c1);">
+
+    <div class="main">
+
+        <div class="container">
+            <h2>Create University</h2>
+            <form action="/University/CreateUniversity" id="signup-form" class="signup-form">
+                <h3>
+                    Create University
+                </h3>
+                <fieldset>
+                    <div class="form-row form-input-flex">
+                        <div class="form-input">
+                            <label>Create University</label>
+                            @Html.TextBoxFor(x => x.UniversityName, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </fieldset>
+
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,109 @@
+﻿@{
+        Layout = "~/Views/Shared/_Layout1.cshtml";  
+}
+<!-- ======= Hero Section ======= -->
+<section id="hero" class="d-flex align-items-center">
+
+    <div class="container-fluid" data-aos="fade-up">
+        <div class="row justify-content-center">
+            <div class="col-xl-5 col-lg-6 pt-3 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+                <h1 class="text-center">Best Portfolio Ever</h1>
+                <h2 class="text-center">This web creates your portfolio</h2>
+                @*<div class="text-center"><a href="/API/User/UserInfo" class="btn-get-started scrollto">Get Started</a></div>*@
+            </div>
+        </div>
+    </div>
+
+</section><!-- End Hero -->
+
+<main id="main">
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about section-bg d-flex align-items-center">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title text-center">
+                <h2>About</h2><br />
+            </div>
+            <div class="row">
+                <h3>
+                    A portfolio is a compilation of materials that exemplifies your beliefs, skills, qualifications, education, training and experiences. It provides insight into your personality and work ethic.
+                </h3>
+                <p class="font-italic"><br />
+                    <strong>Why should I have a portfolio?</strong>
+                    The process of putting together a portfolio itself will help you become a more effective interviewee. You will be identifying the skills you have gained through your various experiences and how they relate to the career you are interested in. Choosing the most relevant experiences and putting them in an easily understood format will help you better articulate your skills and experiences when asked questions about your qualifications in an interview. A professional portfolio will also show an employer proof of your organizational, communication, and tangible career related skills.
+                </p>
+            </div>
+            <div style="margin-top: 30px; " class="text-center"><a style="background-color: #6610f2" asp-controller="Home" asp-action="Privacy" class="btn ">Get Started</a></div>
+        </div>
+    </section>
+    <!-- End About Section -->
+    <!-- ======= Sponsors Section ======= -->
+    <section id="sponsors" class="services section-bg">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title text-center">
+                <h2>Sponsors</h2><br />
+            </div>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="card" style="width: 18rem;">
+                        <img src="~/designInfo/assets/img/zain.jpg" class="card-img-top">
+                        <div class="card-body" data-aos="zoom-in" data-aos-delay="100">
+                            @*<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>*@
+                            <a style="background-color: #6610f2" href="https://www.zain.com/en/" class="btn btn-primary">Visit Website</a>
+                        </div>
+                    </div>
+                </div>
+              
+              <div class="col-lg-4">
+                <div class="card" style="width: 18rem; margin-left:25px">
+                  <img height="285px" src="~/designInfo/assets/img/umniah.jpg" class="card-img-top">
+                <div class="card-body" data-aos="zoom-in" data-aos-delay="100">
+                  @*<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>*@
+                        <a style="background-color: #6610f2" href="https://www.umniah.com/en" class="btn btn-primary">Visit Website</a>
+                  </div>
+                    </div>
+              </div>
+                
+              <div class="col-lg-4">
+                  <div class="card" style="width: 18rem; margin-left:25px">
+                      <img height="285px" src="~/designInfo/assets/img/orange.jpg" class="card-img-top">
+                      <div class="card-body" data-aos="zoom-in" data-aos-delay="100">
+                          @*<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>*@
+                          <a style="background-color: #6610f2" href="https://www.orange.com/en" class="btn btn-primary">Visit Website</a>
+                      </div>
+                  </div>
+              </div>
+                
+            </div>
+
+        </div>
+    </section><br /><br /><br /><br /><!-- End Services Section -->
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact section-bg">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title text-center">
+                <h2>Contact</h2><br />
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="info-box  mb-4">
+                        <i class="bx bx-envelope"></i>
+                        <h3>Email Us</h3>
+                        <a href="mailto:Thabetajweh@icloud.com">Thabetajweh@icloud.com</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="info-box  mb-4">
+                        <i class="bx bx-phone-call"></i>
+                        <h3>Call Us</h3>
+                        <p>00962785621758</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- End Contact Section -->
+
+</main><!-- End #main -->

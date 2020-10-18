@@ -1,0 +1,29 @@
+﻿@using Portfolio.Data
+@model TechnicalSkills
+@{
+    Layout = "~/Views/Shared/_exLayout.cshtml";
+
+}
+<div style="background: -webkit-linear-gradient(-#6610f2, #6f42c1,#6f42c1);">
+
+    <div class="main">
+
+        <div class="container">
+            <h2>Create Technical Skill</h2>
+            <form action="/Skill/CreateTechnicalSkill" id="signup-form" class="signup-form">
+                <h3>
+                    Create Technical Skill
+                </h3>
+                <fieldset>
+                    <div class="form-row form-input-flex">
+                        <div class="form-input">
+                            <label>Create Technical Skill</label>
+                            @Html.TextBoxFor(x => x.TechnicalSkillName, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </fieldset>
+
+            </form>
+        </div>
+    </div>
+</div>

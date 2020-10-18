@@ -1,0 +1,47 @@
+﻿@model InterpersonalSkills
+@using Portfolio.Data
+
+@{
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+<section id="hero" class="d-flex align-items-center">
+
+    <div class="container-fluid" data-aos="fade-up">
+        <div class="row justify-content-center">
+            <div class="col-xl-5 col-lg-6 pt-3 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th style="color:white">Skill Name</th>
+                            <th style="color:white">Remove</th>
+                            <th style="color:white">Edit</th>
+                            <th>
+                                @Html.ActionLink("Create", "InterpersonalSkillCreate", "Skill",
+                                new { @class = "btn btn-dark" }, new { @style = "color:white" })
+                            </th>
+                           
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            foreach (var x in (List<InterpersonalSkills>)ViewBag.InterpersonalSkills)
+                            {
+                                <tr>
+                                    <td style="color:white">@x.InterpersonalSkillName</td>
+                                    <td>
+                                        @Html.ActionLink("Remove", "RemoveInterpersonalSkill", "Skill",
+                                        new { Id = x.InterpersonalSkillsId }, new { @class = "btn btn-dark" })
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Edit", "InterpersonalSkillEdit", "Skill",
+                                       new { interpersonalSkillId = x.InterpersonalSkillsId }, new { @class = "btn btn-dark" })
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+</div>
+</div>
+</section>

@@ -1,0 +1,65 @@
+﻿@page
+@model RegisterModel
+@{    
+    Layout = "~/Views/Shared/_LoginDesignLayout.cshtml";
+    ViewData["Title"] = "Register";
+}
+<div class="row">
+    <div class="limiter">
+        <div class="container-login100">
+
+            <div class="col-md-4">
+                <form class="login100-form validate-form" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                    <span class="login100-form-title p-b-43">Create a new account.</span>
+                    <hr />
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="wrap-input100 rs1 validate-input">
+                        <input asp-for="Input.Email" class="input100" />
+                        <span asp-validation-for="Input.Email" class="text-danger label-input100">Email</span>
+                    </div>
+                    <div class="wrap-input100 rs2 validate-input">
+                        <input asp-for="Input.Password" class="input100" />
+                        <span asp-validation-for="Input.Password" class="text-danger label-input100">Password</span>
+                    </div>
+                    <div class="wrap-input100 rs3 validate-input">
+                        <input asp-for="Input.ConfirmPassword" class="input100" />
+                        <span asp-validation-for="Input.ConfirmPassword" class="text-danger label-input100">Confirm Password</span>
+                    </div>
+                    <div class="container-login100-form-btn">
+                        <input type="submit" class="login100-form-btn" value="Register"/>
+
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-6 col-md-offset-2">
+                <section>
+                    <hr />
+                    @{
+                        if ((Model.ExternalLogins?.Count ?? 0) == 0)
+                        {
+                            <div>
+                               
+                            </div>
+                        }
+                        else
+                        {
+                            <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                                <div>
+                                    <p>
+                                        @foreach (var provider in Model.ExternalLogins)
+                                        {
+                                            <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                                        }
+                                    </p>
+                                </div>
+                            </form>
+                        }
+                    }
+                </section>
+            </div>
+        </div>
+    </div>
+    </div>
+    @*@section Scripts {
+            <partial name="_ValidationScriptsPartial" />
+        }*@

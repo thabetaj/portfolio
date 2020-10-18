@@ -1,0 +1,263 @@
+﻿@model UserDto
+@using Portfolio.Data
+
+@{
+    Layout = "~/Views/Shared/_exLayout.cshtml";
+
+}
+<div style="background: -webkit-linear-gradient(-#6610f2, #6f42c1,#6f42c1);">
+
+    <div class="main">
+
+        <div class="container">
+            <h2>Build your Portfolio</h2>
+            <form method="POST" id="signup-form" class="signup-form" enctype="multipart/form-data" action="/API/User/Create">
+                <h3>
+                    Personal Info
+                </h3>
+                <fieldset>
+                    <div class="form-row form-input-flex">
+
+                        <div class="form-input">
+                            <input type="text" name="FirstName" id="FirstName" placeholder="First Name" />
+                        </div>
+                        <div class="form-input">
+                            <input type="text" name="SecondName" id="SecondName" placeholder="Second Name" />
+                        </div>
+                        <div class="form-input">
+                            <input type="text" name="LastName" id="LastName" placeholder="Last Name" />
+                        </div>
+
+                        <div class="form-input">
+                            <input type="text" name="JobTitle" id="JobTitle" placeholder="Job Title" />
+                        </div>
+                        <div class="form-input"><label>Upload your image:</label>
+                            <input type="file" name="PersonalImage" id="PersonalImage" value="PersonalImage" />
+                        </div>
+                        <div class="form-input">
+                            <input name="DateofBirth" class="form-control Birthday_date form-class" type="text" placeholder="Birthday" id="Birthdaydate_datepicker" />
+                        </div>
+                    </div>
+
+                </fieldset>
+
+                <h3>
+                    About
+                </h3>
+                <fieldset>
+
+                    <div class="form-input">
+                        <input type="text" name="About" id="About" placeholder="About" />
+                    </div>
+                    <div class="form-input">
+                        <input type="text" name="Vision" id="Vision" placeholder="Vision" />
+                    </div>
+                    <div class="form-input"><label>Upload your CV</label>
+                        <input type="file" name="CV" id="CV" placeholder="CV" />
+                    </div>
+
+                </fieldset>
+
+                <h3>
+                    Educational
+                </h3>
+                <fieldset>
+                    <div class="form-row form-input-flex">
+                        <div class="form-input col-md-3">
+                            <span>First Education</span>
+                            <select required name="UniversityDtos[0].UniversityId">
+                                @{
+                                    foreach (var uni in (List<University>)ViewBag.Universities)
+                                    {
+                                        <option value="@uni.UniversityId">@uni.UniversityName</option>
+                                    }
+                                }
+                            </select>
+                            <span class="select-icon"><i class="zmdi zmdi-caret-down"></i></span>
+                        </div>
+
+                        <div class="form-input col-md-3">
+                            <span>Secound Education</span>
+                            <select required name="UniversityDtos[1].UniversityId">
+                                @{
+                                    foreach (var uni in (List<University>)ViewBag.Universities)
+                                    {
+                                        <option value="@uni.UniversityId">@uni.UniversityName</option>
+                                    }
+                                }
+                            </select>
+                            <span class="select-icon"><i class="zmdi zmdi-caret-down"></i></span>
+                        </div>
+                        <div class="form-input col-md-3">
+                            <span>Third Education</span>
+                            <select required name="UniversityDtos[2].UniversityId">
+                                @{
+                                    foreach (var uni in (List<University>)ViewBag.Universities)
+                                    {
+                                        <option value="@uni.UniversityId">@uni.UniversityName</option>
+                                    }
+                                }
+                            </select>
+                                <span class="select-icon"><i class="zmdi zmdi-caret-down"></i></span>
+                        </div>
+                    </div>
+                    <div class="form-row form-input-flex">
+                        <div class="form-input col-md-3">
+                            <select required name="UniversityDtos[0].DegreeId">
+                                @{
+                                    foreach (var uni in (List<Degree>)ViewBag.Degrees)
+                                    {
+                                        <option value="@uni.DegreeId">@uni.DegreeName</option>
+                                    }
+                                }
+                            </select>
+                                <span class="select-icon"><i class="zmdi zmdi-caret-down"></i></span>
+                        </div>
+                        <div class="form-input col-md-3">
+                            <select required name="UniversityDtos[1].DegreeId">
+                                @{
+                                    foreach (var uni in (List<Degree>)ViewBag.Degrees)
+                                    {
+                                        <option value="@uni.DegreeId">@uni.DegreeName</option>
+                                    }
+                                }
+                            </select>
+                            <span class="select-icon"><i class="zmdi zmdi-caret-down"></i></span>
+                        </div>
+                        <div class="form-input col-md-3">
+                            <select required name="UniversityDtos[2].DegreeId">
+                                @{
+                                    foreach (var uni in (List<Degree>)ViewBag.Degrees)
+                                    {
+                                        <option value="@uni.DegreeId">@uni.DegreeName</option>
+                                    }
+                                }
+                            </select>
+                            <span class="select-icon"><i class="zmdi zmdi-caret-down"></i></span>
+                        </div>
+                    </div>
+                    <div class="form-row form-input-flex">
+                        <div class="form-input col-md-3">
+                            @Html.TextBoxFor(x => x.UniversityDtos[0].MajorName, new { @required = "required" })
+                        </div>
+                        <div class="form-input col-md-3">
+                            @Html.TextBoxFor(x => x.UniversityDtos[1].MajorName)
+                        </div>
+                        <div class="form-input col-md-3">
+                            @Html.TextBoxFor(x => x.UniversityDtos[2].MajorName)
+                        </div>
+                    </div>
+                </fieldset>
+                <h3>
+                    Skills
+                </h3>
+                <fieldset>
+                    <div class="form-input col-md-3">
+                        <select name="InterpersonalSkills" id="InterpersonalSkill" class="selectpicker" multiple data-live-search="true">
+                            <option value="">Interpersonal Skill</option>
+                            @{
+                                foreach (var personalskill in (List<InterpersonalSkills>)ViewBag.InterpersonalSkills)
+                                {
+                                    <option value="@personalskill.InterpersonalSkillsId">@personalskill.InterpersonalSkillName</option>
+                                }
+
+                            }
+                        </select>
+                        <span class="select-icon"><i class="zmdi zmdi-caret-down"></i></span>
+                    </div>
+                    <div class="form-input col-md-3">
+                        <select name="TechnicalSkills" id="TechnicalSkill" class="selectpicker" multiple data-live-search="true">
+                            <option value="">Technical Skill</option>
+                            @{
+                                foreach (var technicalSkill in (List<TechnicalSkills>)ViewBag.TechnicalSkills)
+                                {
+                                    <option value="@technicalSkill.TechnicalSkillsId">@technicalSkill.TechnicalSkillName</option>
+                                }
+                            }
+                        </select>
+                        <span class="select-icon"><i class="zmdi zmdi-caret-down"></i></span>
+                    </div>
+                </fieldset>
+                <h3>
+                    Projects
+                </h3>
+                <fieldset style="margin-top:300px">
+
+                    <div class="form-row form-input-flex" style="margin-top:-300px">
+                        <div class="form-input">
+                            <span>First Project</span>
+                            <input type="text" name="ProjectDtos[0].ProjectName" id="ProjectDtos[0].ProjectName" placeholder="Project Name" required />
+                        </div>
+                        <div class="form-input">
+                            <input type="text" name="ProjectDtos[0].ProjectDescription" id="ProjectDtos[0].ProjectDescription" placeholder="Project Description" required />
+                        </div>
+                        <div class="form-input">@*<label>Upload Project Image:</label>*@
+                            <input type="file" name="ProjectDtos[0].ProjectImage" id="ProjectDtos[0].ProjectImage" placeholder="Project Image" required />
+                        </div>
+                        <div class="form-input">@*<label>Upload Project PDF:</label>*@
+                            <input type="file" name="ProjectDtos[0].ProjectPDF" id="ProjectDtos[0].ProjectPDF" placeholder="Project PDF" required />
+                        </div>
+                    </div>
+                    <span>Secound Project</span>
+                    <div class="form-row form-input-flex">
+                        <div class="form-input">
+                            <input type="text" name="ProjectDtos[1].ProjectName" id="ProjectDtos[1].ProjectName" placeholder="Project Name" />
+                        </div>
+                        <div class="form-input">
+                            <input type="text" name="ProjectDtos[1].ProjectDescription" id="ProjectDtos[1].ProjectDescription" placeholder="Project Description" />
+                        </div>
+                        <div class="form-input">@*<label>Upload Project Image:</label>*@
+                            <input type="file" name="ProjectDtos[1].ProjectImage" id="ProjectDtos[1].ProjectImage" placeholder="Project Image" />
+                        </div>
+                        <div class="form-input">@*<label>Upload Project PDF:</label>*@
+                            <input type="file" name="ProjectDtos[1].ProjectPDF" id="ProjectDtos[1].ProjectPDF" placeholder="Project PDF" />
+                        </div>
+                    </div>
+                    <span>Third Project</span>
+                    <div class="form-row form-input-flex">
+                        <div class="form-input">
+                            <input type="text" name="ProjectDtos[2].ProjectName" id="ProjectDtos[2].ProjectName" placeholder="Project Name" />
+                        </div>
+                        <div class="form-input">
+                            <input type="text" name="ProjectDtos[2].ProjectDescription" id="ProjectDtos[2].ProjectDescription" placeholder="Project Description" />
+                        </div>
+                        <div class="form-input">
+                            <input type="file" name="ProjectDtos[2].ProjectImage" id="ProjectDtos[2].ProjectImage" placeholder="Project Image" />
+                        </div>
+                        <div class="form-input">
+                            <input type="file" name="ProjectDtos[2].ProjectPDF" id="ProjectDtos[2].ProjectPDF" placeholder="Project PDF" />
+                        </div>
+                    </div>
+                </fieldset>
+                <h3>
+                    Contact
+                </h3>
+                <fieldset>
+                    <div class="form-row form-input-flex">
+                        <div class="form-input">
+                            <input type="email" name="PortfolioEmail" id="PortfolioEmail" placeholder="Email" />
+                        </div>
+                        <div class="form-input">
+                            <input type="number" name="" id="MobileNumber" placeholder="Mobile Number" />
+                        </div>
+                        <div class="form-input">
+                            <input type="text" name="Address" id="Address" placeholder="Address" />
+                        </div>
+
+                        <div class="form-input">
+                            <input type="url" name="TwitterUrl" id="TwitterURL" placeholder="Twitter URL" />
+                        </div>
+                        <div class="form-input">
+                            <input name="FBUrl" type="url" placeholder="Facebook URL" id="FacebookURL" />
+                        </div>
+                        <div class="form-input">
+                            <input type="url" name="LinkedInUrl" id="LinkedInURL" placeholder="LinkedIn URL" />
+                        </div>
+                    </div>
+                </fieldset>
+
+            </form>
+        </div>
+
+    </div>
+</div>

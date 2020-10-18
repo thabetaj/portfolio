@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="colorlib.com">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Portfolio</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="~/Portfolio/fonts/material-icon/css/material-design-iconic-font.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="~/Portfolio/css/style.css">
+    <link href="~/Portfolio/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+        <h1 class="logo mr-auto"> <a style="color:white;" href="/Home/Index">Portfolio</a></h1>
+        <ul class="navbar-nav mr-lg-5">
+            <li class="nav-item active">
+                <a class="nav-link" href="/Home/Index">Home</a>
+            </li>
+            <li class="nav-item  ">
+                <a class="nav-link disabled" href="#">Show Portfolio</a>
+            </li>
+        </ul>
+    </nav>
+    <div>
+        @RenderBody()
+    </div>
+    <footer class="ftco-footer ftco-bg-dark ftco-section">
+
+
+        <p style="text-align: center;">
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright <span>Thabet </span>&copy;
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+        </p>
+    </footer>
+    <!-- JS -->
+    <script src="~/Portfolio/vendor/jquery/jquery.min.js"></script>
+    <script src="~/Portfolio/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Portfolio/vendor/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/Portfolio/vendor/jquery-validation/dist/additional-methods.min.js"></script>
+    <script src="~/Portfolio/vendor/jquery-steps/jquery.steps.min.js"></script>
+    <script src="~/Portfolio/js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
+    @RenderSection("Scripts", required: false)
+    <script>
+        $('select').selectpicker();
+        $("#Birthdaydate_datepicker").datepicker();
+
+    </script>
+</body>
+</html>

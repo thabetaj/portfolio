@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Techie Bootstrap Template - Index</title>
+    <meta content="" name="descriptison">
+    <meta content="" name="keywords">
+
+    @*Favicons*@
+    @*<link href="~/designInfo/assets/img/favicon.png" rel="icon">*@
+    <link href="~/designInfo/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    @*Google Fonts*@
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    @*Vendor CSS Files*@
+    <link href="~/designInfo/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/designInfo/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+    <link href="~/designInfo/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="~/designInfo/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="~/designInfo/assets/vendor/venobox/venobox.css" rel="stylesheet">
+    <link href="~/designInfo/assets/vendor/aos/aos.css" rel="stylesheet">
+
+    @*Template Main CSS File*@
+    <link href="~/designInfo/assets/css/style.css" rel="stylesheet" />
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+</head>
+
+<body>
+
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top ">
+        <div class="container-fluid">
+
+            <div class="row justify-content-center">
+                <div class="col-xl-9 d-flex align-items-center">
+                    <h1 class="logo mr-auto"><a href="#">Portfolio</a></h1>
+                    <!-- Uncomment below if you prefer to use an image logo -->
+                    <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+                    <nav class="nav-menu d-none d-lg-block">
+                        <ul>
+                            @{
+                                if (User.IsInRole("User"))
+                                {
+                                    <li class="active"><a href="#hero">Home</a></li>
+                                    <li><a href="#about">About</a></li>
+                                    <li><a href="#sponsors">Sponsors</a></li>
+                                    <li><a href="#contact">Contact</a></li>
+                                    <li><a asp-controller="View" asp-action="ViewPortfolio">View Portfolio</a></li>
+                                }
+                                else if (User.IsInRole("Admin"))
+                                {
+                                    <li><a href="/AdminUsers/Users">Users</a></li>
+                                    <li><a href="/University/Universities">University</a></li>
+                                    <li><a href="/Degree/Degrees">Degrees</a></li>
+                                    <li><a href="/Skill/InterpersonalSkills">Interpersonal Skills</a></li>
+                                    <li><a href="/Skill/TechnicalSkills">Technical Skills</a></li>
+                                }
+                            }
+                            <li><partial name="_LoginPartial" /></li>
+                        </ul>
+                       
+
+
+                    </nav><!-- .nav-menu -->
+
+                </div>
+            </div>
+
+        </div>
+    </header><!-- End Header -->
+
+
+
+    @RenderBody();
+
+
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+
+            <div class="copyright-wrap d-md-flex py-4">
+                <div class="mr-md-auto text-center text-md-left">
+                    <div class="copyright">
+                        &copy; Copyright <strong><span>Thabet</span></strong>. All Rights Reserved
+                    </div>
+                    <div class="credits">
+                        <!-- All the links in the footer should remain intact. -->
+                        <!-- You can delete the links only if you purchased the pro version. -->
+                        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+                        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/techie-free-skin-bootstrap-3/ -->
+                        Designed by <a href="mailto:Thabetajweh@icloud.com/">Thabet Ajweh</a>
+                    </div>
+                </div>
+                <div class="social-links text-center text-md-right pt-3 pt-md-0">
+                    <a href="https://twitter.com/Thabet_Ajweh" class="twitter"><i class="bx bxl-twitter"></i></a>
+                    <a href="https://web.facebook.com/thabet.ajweh.7106/" class="facebook"><i class="bx bxl-facebook"></i></a>
+                    <a href="https://www.linkedin.com/in/thabet-ajweh-5661721a0/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                </div>
+            </div>
+
+        </div>
+    </footer><!-- End Footer -->
+
+    <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+    <div id="preloader"></div>
+
+    @*Vendor JS Files*@
+    <script src="~/designInfo/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="~/designInfo/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/designInfo/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+    <script src="~/designInfo/assets/vendor/php-email-form/validate.js"></script>
+    <script src="~/designInfo/assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+    <script src="~/designInfo/assets/vendor/counterup/counterup.min.js"></script>
+    <script src="~/designInfo/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+    <script src="~/designInfo/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="~/designInfo/assets/vendor/venobox/venobox.min.js"></script>
+    <script src="~/designInfo/assets/vendor/aos/aos.js"></script>
+
+    @*Template Main JS File*@
+    <script src="~/designInfo/assets/js/main.js"></script>
+
+   
+
+</body>
+
+</html>
